@@ -1,0 +1,8 @@
+{
+  "name": "app-persona",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

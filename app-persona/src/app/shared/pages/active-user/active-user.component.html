@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    
+    <ion-title>
+      Activar Usuario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Dirección" labelPlacement="floating" [readonly]="true" [(ngModel)]="userActive.address"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+      <ion-input label="Contraseña" labelPlacement="floating" type="password" [(ngModel)]="userActive.password"></ion-input>
+    </ion-item>
+
+    <ion-item slot="end">
+      <ion-button (click)="logout()">Cancelar</ion-button>
+      <ion-button (click)="saveData()">Guardar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
