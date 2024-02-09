@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon color="danger" name="exit"></ion-icon>
+        Salir
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Datos</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-input label="Nombres" labelPlacement="floating" [(ngModel)]="user.name" [readonly]="true"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input label="Apellidos" labelPlacement="floating" [(ngModel)]="user.last_name" [readonly]="true"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input label="Tipo Documento" labelPlacement="floating" [(ngModel)]="user.type_documentation" [readonly]="true"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input label="Documento" labelPlacement="floating" [(ngModel)]="user.documentation" [readonly]="true"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input label="Número Teléfono" type="tel" labelPlacement="floating" [(ngModel)]="user.phone_number" [readonly]="true"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input label="Correo Electrónico" type="email" labelPlacement="floating" [(ngModel)]="user.email" [readonly]="true"></ion-input>
+      </ion-item>
+    </ion-item-group>
+    
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Vehiculos</ion-label>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let item of listVehicles" (click)="openDataVehiculo(item)">
+        <ion-avatar slot="start">
+          <img [src]="item.photo" (error)="errorImage(img)" #img />
+        </ion-avatar>
+        <ion-label>{{ item.car_plate }}</ion-label>
+        <ion-icon aria-hidden="true" name="eye" slot="end"></ion-icon>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+  
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="goRegisterVehicle()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

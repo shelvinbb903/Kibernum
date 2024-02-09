@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon slot="icon-only" color="danger" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Registrar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Placa" labelPlacement="floating" [(ngModel)]="vehicle.car_plate"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="Año del Modelo" type="number" labelPlacement="floating" [(ngModel)]="vehicle.year"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-select label="Configuración" labelPlacement="floating" [(ngModel)]="vehicle.setting_id">
+        <ion-select-option value="">Seleccione...</ion-select-option>
+        <ion-select-option [value]="item.id" *ngFor="let item of listConfiguraciones">{{ item.description }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-select label="Carrocería" labelPlacement="floating" [(ngModel)]="vehicle.body_car_id">
+        <ion-select-option value="">Seleccione...</ion-select-option>
+        <ion-select-option [value]="item.id" *ngFor="let item of listCarrocerias">{{ item.description }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item slot="end">
+      <ion-button (click)="saveData()">Guardar</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
